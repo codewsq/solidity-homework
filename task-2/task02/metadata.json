@@ -1,0 +1,21 @@
+{
+    "name": "My Awesome NFT",
+    "description": "This is my first NFT created for testing purposes",
+    "image": "ipfs://bafybeigljl4zfpkwwotajerstx3da7camlr32n2znfpqnx25h2weglw26e",
+    "attributes": [
+        {
+            "trait_type": "Creator",
+            "value": "WSQ_NFT"
+        },
+        {
+            "trait_type": "Edition",
+            "value": "First"
+        },
+        {
+            "trait_type": "Rarity",
+            "value": "Common"
+        }
+    ],
+    "external_url": "https://yourwebsite.com",
+    "background_color": "ffffff"
+}
