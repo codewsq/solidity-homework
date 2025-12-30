@@ -170,4 +170,8 @@ contract NftAuction is Initializable, UUPSUpgradeable, IERC721Receiver {
     ) external pure override returns (bytes4) {
         return this.onERC721Received.selector;
     }
+
+    receive() external payable {}
+
+    fallback() external payable {}
 }

@@ -30,4 +30,11 @@ npm install -d @openzeppelin/hardhat-upgrades
 # 启动部署
 npx hardhat deploy [--tags upgrade] [--network bscTestnet]
 
+# 基础测试 - 需要注释掉02_upgrade_nft_auction.js最后一行依赖
+npx hardhat test test/NftAuction.js
+# 测试拍卖合约 第一版本功能
+npx hardhat test test/TestNftAuction.js 
+# 测试拍卖合约 第二版本功能，升级内容有：预言机喂价、新增ERC20代币拍卖
+npx hardhat test test/TestNftAuctionV2.js
 ```
+

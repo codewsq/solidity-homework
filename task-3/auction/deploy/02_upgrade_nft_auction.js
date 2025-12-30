@@ -5,7 +5,6 @@ const path = require("path");
 module.exports = async function ({ getNamedAccounts, deployments }) {
   const { save } = deployments;
   const { deployer } = await getNamedAccounts();
-  console.log("部署用户地址：", deployer)
 
   // 读取 .cache/proxyNftAuction.json 文件中的合约地址和ABI
   const storePath = path.resolve(__dirname, "./.cache/proxyNftAuction.json");
@@ -37,7 +36,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
     address: proxyAddressV2,
   });
 }
-// 关键点：这里定义依赖，确保 ["NftAuction"] 先运行
+// 关键点：这里定义依赖，确保 ["deployNftAuction"] 先运行
 module.exports.tags = ["upgradeNftAuction"];
 module.exports.dependencies = ["deployNftAuction"]; // <--- 确保有这一行，声明依赖关系
 
