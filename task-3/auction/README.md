@@ -38,3 +38,19 @@ npx hardhat test test/TestNftAuction.js
 npx hardhat test test/TestNftAuctionV2.js
 ```
 
+```bash
+# 1. 编译合约
+npx hardhat compile
+
+# 2. 在本地测试部署（确保一切正常）
+npx hardhat ignition deploy ./ignition/modules/MyToken.js --network localhost
+
+# 3. 部署到Sepolia测试网
+npx hardhat ignition deploy ./ignition/modules/NftAuctionV2.js --network sepolia
+
+# 4. 可选：验证合约（需要配置Etherscan API密钥）
+npx hardhat verify --network sepolia 0xfcfb7f3846913843fda6eB3D1897481520f00489
+
+# 5. 可选：运行测试
+npx hardhat test
+```
