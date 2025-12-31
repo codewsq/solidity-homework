@@ -58,7 +58,7 @@ npx hardhat test
 ```
 
 ```shell
-# 1.在powerShell中设置代理端口 - 用于 npx hardhat verify --network sepolia contractAddress 验证合约
+# 1.在powerShell（vscode终端）中设置代理端口 - 用于 npx hardhat verify --network sepolia contractAddress 验证合约
 $env:HTTP_PROXY="http://127.0.0.1:7897"
 $env:HTTPS_PROXY="http://127.0.0.1:7897"
 
