@@ -5,6 +5,12 @@ require("hardhat-deploy");
 require("@openzeppelin/hardhat-upgrades");
 require("dotenv").config();
 
+const { hardhatVerify } = require("@nomicfoundation/hardhat-verify")
+
+const { ProxyAgent, setGlobalDispatcher } = require("undici");
+const proxyAgent = new ProxyAgent("http://127.0.0.1:7897"); // 如果你有代理服务器，可以设置代理地址
+setGlobalDispatcher(proxyAgent);
+
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
@@ -28,16 +34,25 @@ module.exports = {
       chainId: 31337, // Hardhat 默认链ID
     },
     sepolia: {
-      url: `https://sepolia.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.PK],
+      url: process.env.INFURA_API_KEY,
+      accounts: [process.env.SEPOLIA_PRIVATE_KEY],
+      chainId: 11155111, // Sepolia 测试网络的链ID
     },
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
+    apiKey: process.env.ETHERSCAN_API_KEY
   },
   namedAccounts: {
     deployer: 0,
     user1: 1,
     user2: 2,
-  }
+  },
+  // verify: {
+  //   etherscan: {
+  //     apiKey: process.env.ETHERSCAN_API_KEY,
+  //   },
+  // },
+  // plugins: [
+  //   hardhatVerify,
+  // ],
 };

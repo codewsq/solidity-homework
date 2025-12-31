@@ -46,10 +46,10 @@ npx hardhat compile
 npx hardhat ignition deploy ./ignition/modules/MyToken.js --network localhost
 
 # 3. 部署到Sepolia测试网
-npx hardhat ignition deploy ./ignition/modules/NftAuctionV2.js --network sepolia
+npx hardhat ignition deploy ./ignition/modules/NftAuctionV2.js --network sepolia [--reset]
 
 # 4. 可选：验证合约（需要配置Etherscan API密钥）
-npx hardhat verify --network sepolia 0xfcfb7f3846913843fda6eB3D1897481520f00489
+npx hardhat verify --network sepolia 0x5eC0DF0bbeC1a7F7bd2179a6C0f75f400F367ADf
 
 # 5. 可选：运行测试
 npx hardhat test
