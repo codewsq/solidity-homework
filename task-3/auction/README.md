@@ -16,8 +16,10 @@ npx hardhat ignition deploy ./ignition/modules/Lock.js
 # 挂载调试可升级合约对象hardhat-deploy
 # 1.安装依赖
 npm install -D hardhat-deploy
+# 或者
 npm install --save-dev hardhat-deploy
-# 2.在hardhat.config.js中导入 -  require("hardhat-deploy");
+# 2.在hardhat.config.js中导入 
+require("hardhat-deploy");
 # 3.在hardhat.config.js中配置
 # 4.尝试启动
 npx hardhat deploy
@@ -49,8 +51,21 @@ npx hardhat ignition deploy ./ignition/modules/MyToken.js --network localhost
 npx hardhat ignition deploy ./ignition/modules/NftAuctionV2.js --network sepolia [--reset]
 
 # 4. 可选：验证合约（需要配置Etherscan API密钥）
-npx hardhat verify --network sepolia 0x5eC0DF0bbeC1a7F7bd2179a6C0f75f400F367ADf
+npx hardhat verify --network sepolia 0xfEE2f19d306a62570fD232f26fC4c1b74bA37EDD
 
 # 5. 可选：运行测试
 npx hardhat test
+```
+
+```shell
+# 1.在powerShell中设置代理端口 - 用于 npx hardhat verify --network sepolia contractAddress 验证合约
+$env:HTTP_PROXY="http://127.0.0.1:7897"
+$env:HTTPS_PROXY="http://127.0.0.1:7897"
+
+# 2.在cmd中设置
+set HTTP_PROXY=http://127.0.0.1:7897
+set HTTPS_PROXY=http://127.0.0.1:7897
+
+# 3.执行验证命令
+npx hardhat verify --network sepolia contractAddress ["构造函数参数1" "构造函数参数2" ...]
 ```
